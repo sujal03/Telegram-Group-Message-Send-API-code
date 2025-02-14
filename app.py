@@ -101,12 +101,13 @@ from telegram import Bot
 import asyncio
 from dotenv import load_dotenv
 import os
+from flask_cors  import CORS
 
 # Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
-
+CORS(app, resources={r"/*": {"origins": "*"}})
 # Get environment variables with fallback values
 TOKEN = os.getenv("TELEGRAM_TOKEN")
 GROUP_CHAT_ID = os.getenv("GROUP_CHAT_ID")
